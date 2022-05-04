@@ -1,4 +1,4 @@
-@use '../util'as a;
+@use '../util'as u;
 
 
 .grid {
@@ -12,7 +12,7 @@
 
 
 
-  @include a.breakpoint(large) {
+  @include u.breakpoint(large) {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
   }
@@ -24,14 +24,27 @@
 
   &__main {
     background-color: hsl(240, 99%, 33%);
+
+    @include u.breakpoint(medium) {
+      background-color: hsl(120, 100%, 16%);
+    }
+
+    @include u.breakpoint(large) {
+      background-color: hsl(39, 100%, 35%);
+    }
+
   }
 
   &__sidebar {
     background-color: hsl(300, 100%, 30%);
 
 
-    @include a.breakpoint-down(medium) {
+    @include u.breakpoint-down(medium) {
       text-align: center;
+    }
+
+    @include u.breakpoint-down(small) {
+      text-align: right;
     }
   }
 }
